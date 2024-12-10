@@ -64,15 +64,19 @@ public class Scrabble {
 	// If the word includes the sequence "runi", adds 1000 points to the game.
 	public static int wordScore(String word) {
 		int score = 0;
+		
+
+		for(int i = 0 ; i < word.length() ; i++){
+			score += SCRABBLE_LETTER_VALUES[word.charAt(i)-97];
+		}
+
+		score = word.length() * score; 
+
 		if(word.length() == 10){
 			score += 50;
 		}
 		if(MyString.subsetOf("runi", word) == true){
 			score += 1000;
-		}
-
-		for(int i = 0 ; i < word.length() ; i++){
-			score += SCRABBLE_LETTER_VALUES[word.charAt(i)-97];
 		}
 
 		return score ;
@@ -83,8 +87,8 @@ public class Scrabble {
 	// (these two vowels make it easier for the user to construct words)
 	public static String createHand() {
 		String word = MyString.randomStringOfLetters(8);
-		MyString.insertRandomly('a', word);
-		MyString.insertRandomly('e', word);
+		word = MyString.insertRandomly('a', word);
+		word = MyString.insertRandomly('e', word);
 
 		return word;
 	}
