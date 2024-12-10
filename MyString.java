@@ -43,7 +43,7 @@ public class MyString {
      */
     public static boolean subsetOf(String str1, String str2) {
          for(int i = 0 ; i < str1.length() ; i++){
-            if(str2.indexOf(str2.charAt(i))==-1){
+            if(str2.indexOf(str1.charAt(i))==-1){
                 return false;
             }
             if(countChar(str1, str1.charAt(i))!=countChar(str2, str1.charAt(i))){
