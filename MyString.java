@@ -65,18 +65,31 @@ public class MyString {
      * @return a string consisting of the characters of str, separated by spaces.
      */
     public static String spacedString(String str) {
-        String finalString = "";
-        for(int i = 0 ; i < str.length() ; i++){
-            if(i == str.length()-1){
-                finalString += str.charAt(i);
-            }
-            else{
-                finalString += str.charAt(i);
-                finalString += " ";
-            }
-        }
-        return finalString;
+    //     String finalString = "";
+    //     for(int i = 0 ; i < str.length() ; i++){
+    //         if(i == str.length()-1){
+    //             finalString += str.charAt(i);
+    //         }
+    //         else{
+    //             finalString += str.charAt(i);
+    //             finalString += " ";
+    //         }
+    //     }
+    //     return finalString;
+    // }
+
+    int length= str.length();
+    String newString="";
+    if (str.length()==0) {
+        return ""+"";
     }
+    
+    for (int i=0; i<length-1; i++){
+        newString+="" +str.charAt(i)+ " ";
+    }
+    newString+=""+str.charAt(length-1);
+    return newString;
+}
   
     /**
      * Returns a string of n lowercase letters, selected randomly from 
@@ -108,20 +121,40 @@ public class MyString {
      * @return a string consisting of str1 minus all the characters of str2
      */
     public static String remove(String str1, String str2) {
-       String removedString = "";
-       String check = "";
-       for(int i = 0 ; i < str1.length() ; i++){
-        if((str2.indexOf(str1.charAt(i))==-1) || countChar(str2, str1.charAt(i)) == countChar(check, str1.charAt(i))){
-            removedString += str1.charAt(i);
-        }
-        else{
-            check += str1.charAt(i);
+    //    String removedString = "";
+    //    String check = "";
+    //    for(int i = 0 ; i < str1.length() ; i++){
+    //     if((str2.indexOf(str1.charAt(i))==-1) || countChar(str2, str1.charAt(i)) == countChar(check, str1.charAt(i))){
+    //         removedString += str1.charAt(i);
+    //     }
+    //     else{
+    //         check += str1.charAt(i);
             
-        }
-       }
-        return removedString;
+    //     }
+    //    }
+    //     return removedString;
+    // }
+    char[] newCharArray= new char[str1.length()];
+    for (int i=0; i<str1.length(); i++){
+        newCharArray[i]=str1.charAt(i);
     }
-
+    for (int j=0; j<str2.length(); j++){
+        char char2= str2.charAt(j);
+        for (int k=0; k<newCharArray.length; k++){
+            if (newCharArray[k]==char2 || newCharArray[k]==char2-32 || newCharArray[k]==char2+32){
+                newCharArray[k]=' ';
+                break;
+            }
+        }
+    }
+    String newString="";
+    for (int m=0; m<newCharArray.length; m++){
+        if (newCharArray[m]!=' '){
+            newString+="" + newCharArray[m];
+        }
+    }
+     return newString;
+ }
     /**
      * Returns a string consisting of the given string, with the given 
      * character inserted randomly somewhere in the string.
