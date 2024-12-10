@@ -75,7 +75,7 @@ public class Scrabble {
 		if(word.length() == 10){
 			score += 50;
 		}
-		if(MyString.subsetOf("runi", word.toLowerCase()) == true){
+		if(MyString.subsetOf("runi", word) == true){
 			score += 1000;
 		}
 

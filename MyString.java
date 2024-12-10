@@ -8,6 +8,9 @@ public class MyString {
         System.out.println(countChar(hello, 'l'));
         System.out.println(countChar(hello, 'z'));
         System.out.println(spacedString(hello));
+        boolean check = MyString.subsetOf("runi", "running");
+        System.out.println(check);
+
         //// Put your other tests here.
     }
 
@@ -46,7 +49,7 @@ public class MyString {
             if(str2.indexOf(str1.charAt(i))==-1){
                 return false;
             }
-            if(countChar(str1, str1.charAt(i))!=countChar(str2, str1.charAt(i))){
+            if(countChar(str1, str1.charAt(i)) > countChar(str2, str1.charAt(i))){
                 return false;
             }
          }
