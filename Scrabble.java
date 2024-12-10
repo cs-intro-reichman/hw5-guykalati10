@@ -70,23 +70,39 @@ public class Scrabble {
 	// If the length of the word equals the length of the hand, adds 50 points to the score.
 	// If the word includes the sequence "runi", adds 1000 points to the game.
 	public static int wordScore(String word) {
-		int score = 0;
+	// 	int score = 0;
 		
 
-		for(int i = 0 ; i < word.length() ; i++){
-			score += SCRABBLE_LETTER_VALUES[word.charAt(i)-97];
-		}
+	// 	for(int i = 0 ; i < word.length() ; i++){
+	// 		score += SCRABBLE_LETTER_VALUES[word.charAt(i)-97];
+	// 	}
 
-		score = word.length() * score; 
+	// 	score = word.length() * score; 
 
-		if(word.length() == 10){
-			score += 50;
-		}
-		if(MyString.subsetOf("runi", word) == true){
-			score += 1000;
-		}
+	// 	if(word.length() == 10){
+	// 		score += 50;
+	// 	}
+	// 	if(MyString.subsetOf("runi", word) == true){
+	// 		score += 1000;
+	// 	}
 
-		return score ;
+	// 	return score ;
+	// }
+	String wordL= word.toLowerCase();
+        String abc= "abcdefghijklmnopqrstuvwxyz";
+		int score=0;
+		for (int i=0; i<wordL.length(); i++){
+			int letter= abc.indexOf(wordL.charAt(i));
+			score+= SCRABBLE_LETTER_VALUES[letter];
+		}
+		score*=wordL.length();
+		if (wordL.length()==HAND_SIZE){
+			score+= 50;
+		}
+		if (MyString.subsetOf("runi", wordL)){
+			score+=1000;
+		}
+		return score;
 	}
 
 	// Creates a random hand of length (HAND_SIZE - 2) and then inserts
