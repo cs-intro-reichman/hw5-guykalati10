@@ -46,7 +46,7 @@ public class MyString {
             if(str2.indexOf(str1.charAt(i))==-1){
                 return false;
             }
-            if(countChar(str1, str1.charAt(i))!=countChar(str2, str1.charAt(i))){
+            if(countChar(str1, str1.charAt(i))!=countChar(str1, str1.charAt(i))){
                 return false;
             }
          }
